@@ -9,16 +9,16 @@ export default {
       type: Boolean,
       required: false,
     },
-    lightButton: {
+    transpButton: {
       type: Boolean,
       required: false,
     },
   },
   methods: {
-    changeButtonStyle(smallSize, lightButton) {
+    changeButtonStyle(smallSize, transpButton) {
       return {
         "btn-small": smallSize,
-        "btn-previous": lightButton,
+        "btn-previous": transpButton,
       };
     },
   },
@@ -26,7 +26,7 @@ export default {
 </script>
 
 <template>
-  <button :class="['btn', changeButtonStyle(smallSize, lightButton)]">
+  <button :class="['btn', changeButtonStyle(smallSize, transpButton)]">
     {{ label }}
   </button>
 </template>
@@ -59,11 +59,13 @@ export default {
 }
 
 .btn:hover {
-  background: #2011cc;
+  background: var(--primary-color);
+
 }
 
 .btn-previous:hover {
   color: var(--white-color);
+  
 }
 
 .btn:active {

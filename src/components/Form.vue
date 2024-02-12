@@ -295,7 +295,7 @@ export default {
   >
     <Button
       label="Previous step"
-      lightButton
+      transpButton
       @click="previousStep(formInfo.id)"
       v-if="stepsProgress.currentStep > 1"
     />

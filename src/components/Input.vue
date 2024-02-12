@@ -103,8 +103,9 @@ export default {
       padding-right: 60px;
 
       &--width {
-        width: 65%;
+        width: 55%;
         padding-right: 20px;
+        font-size: 16px;
       }
     }
   }
