@@ -35,11 +35,14 @@
   transition: .3s ease;
 
   @media (max-width: 730px) {
-    // padding: 10px;
     width: 100%;
   }
 }
 
 .common-check:hover {
   background: #ededed;
+
+  @media (max-width: 730px) {
+    background: transparent;
+  }
 }

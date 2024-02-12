@@ -46,8 +46,10 @@ export default {
   border: 1px solid transparent;
   cursor: pointer;
   transition: 0.3s ease;
+
   @media (max-width: 730px) {
     width: 100%;
+    -webkit-tap-highlight-color: transparent;
   }
   &--checked {
     border: 1px solid #4a3aff;
@@ -69,6 +71,10 @@ export default {
 
 .checkbox:hover {
   background: #ededed;
+
+  @media (max-width: 730px) {
+    background: transparent;
+  }
 }
 
 .checkbox:focus-visible {

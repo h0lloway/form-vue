@@ -39,6 +39,7 @@ export default {
   align-items: center;
   border-radius: 56px;
   background: var(--primary-color);
+  color: var(--white-color);
   box-shadow: 0px 3px 12px 0px rgba(74, 58, 255, 0.18);
   border: none;
   transition: 0.3s ease;

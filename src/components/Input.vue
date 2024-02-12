@@ -97,6 +97,16 @@ export default {
     &--width {
       width: 65%;
     }
+
+    @media screen and (max-width: 730px) {
+      width: 100%;
+      padding-right: 60px;
+
+      &--width {
+        width: 65%;
+        padding-right: 20px;
+      }
+    }
   }
 }
 </style>
