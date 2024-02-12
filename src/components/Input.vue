@@ -13,6 +13,10 @@ export default {
       type: String,
       required: false,
     },
+    inputContact: {
+      type: Boolean,
+      required: false,
+    },
     inputForm: {
       type: Boolean,
       required: false,
@@ -27,7 +31,7 @@ export default {
 </script>
 
 <template>
-  <div :class="['input']">
+  <li :class="['input', inputContact ? 'contact__items-input' : '']">
     <label
       :class="['input__label', inputForm ? 'input__label--margin' : '']"
       :for="name"
@@ -44,7 +48,7 @@ export default {
       />
       <slot></slot>
     </div>
-  </div>
+  </li>
 </template>
 
 <style lang="scss" scoped>

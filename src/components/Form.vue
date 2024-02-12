@@ -67,24 +67,26 @@ export default {
     };
   },
   methods: {
+    // step list
     activeBubble(index) {
       return {
-        "active--buble": index <= this.stepsProgress.currentStep,
+        active: index <= this.stepsProgress.currentStep,
       };
     },
     lineFillFull(index) {
       return {
-        "active--line": index + 1 <= this.stepsProgress.currentStep,
+        "full-line": index + 1 <= this.stepsProgress.currentStep,
       };
     },
     lineFillHalf(index) {
       return {
-        "fill-half-line":
+        "half-line":
           this.stepsProgress.steps[this.stepsProgress.currentStep] &&
           index + 1 == this.stepsProgress.currentStep,
       };
     },
 
+    // btns
     nextStep() {
       if (this.stepsProgress.currentStep <= 3) this.stepsProgress.currentStep++;
       this.stepsProgress.steps[this.stepsProgress.currentStep] = true;
@@ -93,6 +95,7 @@ export default {
       if (this.stepsProgress.currentStep) this.stepsProgress.currentStep--;
     },
 
+    // checkbox
     setCheckboxValue: function (value, arr) {
       const index = arr.indexOf(value);
       if (index !== -1) {
@@ -103,12 +106,14 @@ export default {
       return arr;
     },
 
+    // radio
     selectedPrice: function (value, oldValue) {
       if (typeof value === "String") {
         oldValue = value;
       }
     },
 
+    // localStorage
     submitData: function () {
       this.submitObjData = {
         name: this.name,
@@ -133,7 +138,6 @@ export default {
   <div class="form">
     <div class="form__content content-common">
       <!-- steps -->
-
       <ul class="form__step-list step-list list-reset">
         <li
           class="step-list__item item"
@@ -143,14 +147,15 @@ export default {
           <div :class="['item__bubble', activeBubble(index + 1)]">
             {{ step }}
           </div>
-          <div :class="['item__line', lineFillFull(index + 1)]">
+          <div :class="['item__line']">
             <div :class="['item__line_fill', lineFillHalf(index)]"></div>
+            <div :class="['item__line_fill', lineFillFull(index + 1)]"></div>
           </div>
         </li>
       </ul>
 
       <div :class="['form__question question']">
-        <!-- Input -->
+        <!-- input -->
         <div
           class="question__contact contact"
           v-if="1 === stepsProgress.currentStep"
@@ -161,12 +166,13 @@ export default {
           <span class="contact__txt common-txt">{{
             formInfo[0].subtitle
           }}</span>
-          <div class="contact__items">
+          <ul class="contact__items list-reset">
             <Input
               v-model:enterTxt.trim="name"
               name="Name"
               placeholder="John Carter"
               inputForm
+              inputContact
             >
               <img
                 class="input-img"
@@ -181,6 +187,7 @@ export default {
               name="Email"
               placeholder="Email address"
               inputForm
+              inputContact
             >
               <img
                 class="input-img"
@@ -195,6 +202,7 @@ export default {
               name="Phone Number"
               placeholder="(123) 456 - 7890"
               inputForm
+              inputContact
             >
               <img
                 class="input-img"
@@ -209,6 +217,7 @@ export default {
               name="Company"
               placeholder="Company name"
               inputForm
+              inputContact
             >
               <img
                 class="input-img"
@@ -218,7 +227,7 @@ export default {
                 alt="company"
               />
             </Input>
-          </div>
+          </ul>
         </div>
 
         <!-- checkbox  -->
@@ -231,7 +240,7 @@ export default {
           </h2>
           <span class="check__txt common-txt">{{ formInfo[1].subtitle }}</span>
 
-          <div class="check__list">
+          <div class="check__list list-reset">
             <CheckboxForm
               name="serv"
               v-model:value="servicesChecked"
@@ -251,8 +260,8 @@ export default {
           </h2>
           <span class="radio__txt common-txt">{{ formInfo[2].subtitle }}</span>
 
-          <div class="radio__items">
-            <div v-for="price in prices" :key="price.id">
+          <ul class="radio__items list-reset">
+            <li v-for="price in prices" :key="price.id">
               <Radio
                 :value="price.quantity"
                 :label="price.quantity"
@@ -261,8 +270,8 @@ export default {
                 v-model:oldValue="selectedPriceVal"
                 @update="selectedPrice"
               />
-            </div>
-          </div>
+            </li>
+          </ul>
         </div>
 
         <!-- submit -->
@@ -362,9 +371,10 @@ export default {
         color: rgb(111, 108, 144);
       }
 
-      &__bubble.active--buble {
-        background-color: #4a3aff;
-        color: var(--white-color);
+      &__bubble.active {
+        -webkit-animation: 0.1s linear both wd2;
+        animation: 0.1s linear both wd2;
+        animation-delay: 0.5s;
       }
 
       &__line {
@@ -381,23 +391,30 @@ export default {
           display: none;
         }
 
-        .fill-half-line {
+        .half-line {
           height: 100%;
-          border-radius: 40px;
           width: 50%;
+          border-radius: 40px;
           background-color: #4a3aff;
 
           -webkit-animation: 0.5s linear both wd;
           animation: 0.5s linear both wd;
+          animation-delay: 0.5s;
         }
-      }
 
-      .active--line {
-        background-color: #4a3aff;
+        .full-line {
+          height: 100%;
+          width: 100%;
+          border-radius: 40px;
+          background-color: #4a3aff;
+
+          -webkit-animation: 0.5s linear both wd1;
+          animation: 0.5s linear both wd1;
+        }
       }
     }
   }
-
+  // анимация степ листа
   @keyframes wd {
     0% {
       width: 0%;
@@ -405,6 +422,27 @@ export default {
 
     100% {
       width: 50%;
+    }
+  }
+
+  @keyframes wd1 {
+    0% {
+      width: 50%;
+    }
+
+    100% {
+      width: 100%;
+    }
+  }
+
+  @keyframes wd2 {
+    0% {
+      background-color: #eff0f6;
+    }
+
+    100% {
+      background-color: #4a3aff;
+      color: var(--white-color);
     }
   }
 
