@@ -42,7 +42,7 @@ export default {
   color: var(--white-color);
   box-shadow: 0px 3px 12px 0px rgba(74, 58, 255, 0.18);
   border: none;
-  transition: 0.3s ease;
+  transition: 0.4s ease;
   &-small {
     padding: 14px 26px;
     font-size: 16px;
@@ -63,7 +63,7 @@ export default {
 }
 
 .btn:hover {
-  background: var(--primary-color);
+  background: #160a98;
 }
 
 .btn-previous:hover {

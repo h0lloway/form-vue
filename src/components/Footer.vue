@@ -63,10 +63,9 @@ export default {
 
   &__subscribe {
     width: 500px;
-    @media (max-width: 650px) {
-      width: 350px;
+    @media (max-width: 1070px) {
+      width: 430px;
     }
-
   }
 }
 </style>

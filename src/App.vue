@@ -17,31 +17,31 @@ export default {
   },
   data() {
     return {
-      formInfo: [
+      infoForm: [
         {
           title: "Contact details",
           subtitle: "Lorem ipsum dolor sit amet consectetur adipisc.",
-          id: "input",
           step: 1,
+          id: "input",
         },
         {
           title: "Our services",
           subtitle: "Please select which service you are interested in.",
-          id: "checkbox",
           step: 2,
+          id: "checkbox",
         },
         {
           title: "What’s your project budget?",
           subtitle: "Please select the project budget range you have in mind.",
-          id: "radio",
           step: 3,
+          id: "radio",
         },
         {
           title: "Submit your quote request",
           subtitle:
             "Please review all the information you previously typed in the past steps, and if all is okay, submit your message to receive a project quote in 24 - 48 hours.",
-          id: "submit",
           step: 4,
+          id: "submit",
         },
       ],
     };
@@ -60,7 +60,7 @@ export default {
           free to add as much detail as needed.
         </div>
 
-        <Form :formInfo="formInfo"> </Form>
+        <Form :infoForm="infoForm"> </Form>
       </div>
     </div>
   </main>

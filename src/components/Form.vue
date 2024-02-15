@@ -12,7 +12,7 @@ export default {
     CheckboxForm,
   },
   props: {
-    formInfo: {
+    infoForm: {
       type: Array,
       required: true,
     },
@@ -161,10 +161,10 @@ export default {
           v-if="1 === stepsProgress.currentStep"
         >
           <h2 class="contact__title heading-2 common-title">
-            {{ formInfo[0].title }}
+            {{ infoForm[0].title }}
           </h2>
           <span class="contact__txt common-txt">{{
-            formInfo[0].subtitle
+            infoForm[0].subtitle
           }}</span>
           <ul class="contact__items list-reset">
             <Input
@@ -236,9 +236,9 @@ export default {
           v-if="2 === stepsProgress.currentStep"
         >
           <h2 class="check__title common-title">
-            {{ formInfo[1].title }}
+            {{ infoForm[1].title }}
           </h2>
-          <span class="check__txt common-txt">{{ formInfo[1].subtitle }}</span>
+          <span class="check__txt common-txt">{{ infoForm[1].subtitle }}</span>
 
           <div class="check__list list-reset">
             <CheckboxForm
@@ -256,9 +256,9 @@ export default {
           v-if="3 === stepsProgress.currentStep"
         >
           <h2 class="radio__title common-title">
-            {{ formInfo[2].title }}
+            {{ infoForm[2].title }}
           </h2>
-          <span class="radio__txt common-txt">{{ formInfo[2].subtitle }}</span>
+          <span class="radio__txt common-txt">{{ infoForm[2].subtitle }}</span>
 
           <ul class="radio__items list-reset">
             <li v-for="price in prices" :key="price.id">
@@ -281,9 +281,9 @@ export default {
         >
           <img class="submit__img" src="/assets/img/submit.svg" alt="submit" />
           <h2 class="submit__title heading-2 common-title">
-            {{ formInfo[3].title }}
+            {{ infoForm[3].title }}
           </h2>
-          <span class="submit__txt common-txt">{{ formInfo[3].subtitle }}</span>
+          <span class="submit__txt common-txt">{{ infoForm[3].subtitle }}</span>
           <div class="submit__btn">
             <Button
               label="Submit"
@@ -305,7 +305,7 @@ export default {
     <Button
       label="Previous step"
       transpButton
-      @click="previousStep(formInfo.id)"
+      @click="previousStep(infoForm.id)"
       v-if="stepsProgress.currentStep > 1"
     />
     <span></span>
@@ -375,6 +375,11 @@ export default {
         -webkit-animation: 0.1s linear both wd2;
         animation: 0.1s linear both wd2;
         animation-delay: 0.5s;
+        @media (max-width: 575px) {
+          animation: none;
+          background-color: #4a3aff;
+          color: var(--white-color);
+        }
       }
 
       &__line {
