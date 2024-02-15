@@ -279,7 +279,7 @@ export default {
           class="question__submit submit"
           v-if="4 === stepsProgress.currentStep"
         >
-          <img class="submit__img" src="/assets/img/submit.svg" alt="submit" />
+          <img class="submit__img" src="/assets/img/submit.png" alt="submit" />
           <h2 class="submit__title heading-2 common-title">
             {{ infoForm[3].title }}
           </h2>
