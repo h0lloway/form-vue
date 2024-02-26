@@ -2,8 +2,8 @@
 import Form from "@/components/Form.vue";
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
-import Input from "@/components/Input.vue";
-import Radio from "@/components/Radio.vue";
+import AppInput from "@/components/UI/AppInput.vue";
+import Radio from "@/components/UI/Radio.vue";
 import CheckboxForm from "@/components/CheckboxForm.vue";
 
 export default {
@@ -11,7 +11,7 @@ export default {
     Header,
     Form,
     Footer,
-    Input,
+    AppInput,
     Radio,
     CheckboxForm,
   },
@@ -52,8 +52,8 @@ export default {
 <template>
   <Header />
   <main class="main">
-    <div :class="['main__container container']">
-      <div :class="['main__content content']">
+    <div class="main__container container">
+      <div class="main__content content">
         <h1 class="main__title">Get a project quote</h1>
         <div class="main__text">
           Please fill the form below to receive a quote for your project. Feel

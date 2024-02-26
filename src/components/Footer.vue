@@ -1,13 +1,13 @@
 <script>
-import Button from "@/components/Button.vue";
-import Logo from "@/components/Logo.vue";
-import Input from "@/components/Input.vue";
+import AppButton from "@/components/UI/AppButton.vue";
+import Logo from "@/components/UI/Logo.vue";
+import AppInput from "@/components/UI/AppInput.vue";
 
 export default {
   components: {
-    Button,
+    AppButton,
     Logo,
-    Input,
+    AppInput,
   },
 };
 </script>
@@ -23,9 +23,9 @@ export default {
         </div>
       </div>
       <div class="footer__subscribe">
-        <Input placeholder="Enter your email" Width>
-          <Button label="Subscribe" smallSize />
-        </Input>
+        <AppInput placeholder="Enter your email" Width>
+          <AppButton label="Subscribe" smallSize />
+        </AppInput>
       </div>
     </div>
   </footer>

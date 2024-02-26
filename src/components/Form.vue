@@ -1,13 +1,13 @@
 <script>
-import Button from "@/components/Button.vue";
-import Input from "@/components/Input.vue";
-import Radio from "@/components/Radio.vue";
+import AppButton from "@/components/UI/AppButton.vue";
+import AppInput from "@/components/UI/AppInput.vue";
+import Radio from "@/components/UI/Radio.vue";
 import CheckboxForm from "@/components/CheckboxForm.vue";
 
 export default {
   components: {
-    Button,
-    Input,
+    AppButton,
+    AppInput,
     Radio,
     CheckboxForm,
   },
@@ -167,7 +167,7 @@ export default {
             infoForm[0].subtitle
           }}</span>
           <ul class="contact__items list-reset">
-            <Input
+            <AppInput
               v-model:enterTxt.trim="name"
               name="Name"
               placeholder="John Carter"
@@ -181,8 +181,8 @@ export default {
                 src="/assets/img/person.svg"
                 alt="user"
               />
-            </Input>
-            <Input
+            </AppInput>
+            <AppInput
               v-model:enterTxt.trim="email"
               name="Email"
               placeholder="Email address"
@@ -196,8 +196,8 @@ export default {
                 src="/assets/img/email.svg"
                 alt="email"
               />
-            </Input>
-            <Input
+            </AppInput>
+            <AppInput
               v-model:enterTxt.trim="phone"
               name="Phone Number"
               placeholder="(123) 456 - 7890"
@@ -211,8 +211,8 @@ export default {
                 src="/assets/img/phone.svg"
                 alt="phone"
               />
-            </Input>
-            <Input
+            </AppInput>
+            <AppInput
               v-model:enterTxt.trim="company"
               name="Company"
               placeholder="Company name"
@@ -226,7 +226,7 @@ export default {
                 src="/assets/img/company.svg"
                 alt="company"
               />
-            </Input>
+            </AppInput>
           </ul>
         </div>
 
@@ -285,7 +285,7 @@ export default {
           </h2>
           <span class="submit__txt common-txt">{{ infoForm[3].subtitle }}</span>
           <div class="submit__btn">
-            <Button
+            <AppButton
               label="Submit"
               :disabled="isDisabled"
               @click="disableButton(), submitData()"
@@ -302,14 +302,14 @@ export default {
       stepsProgress.currentStep > 1 ? '' : 'form-btns--none',
     ]"
   >
-    <Button
+    <AppButton
       label="Previous step"
       transpButton
       @click="previousStep(infoForm.id)"
       v-if="stepsProgress.currentStep > 1"
     />
     <span></span>
-    <Button
+    <AppButton
       label="Next step"
       @click="nextStep()"
       v-if="stepsProgress.currentStep <= 3"

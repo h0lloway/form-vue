@@ -1,10 +1,10 @@
 <script>
-import Button from "@/components/Button.vue";
-import Logo from "@/components/Logo.vue";
+import AppButton from "@/components/UI/AppButton.vue";
+import Logo from "@/components/UI/Logo.vue";
 
 export default {
   components: {
-    Button,
+    AppButton,
     Logo,
   },
 };
@@ -14,7 +14,7 @@ export default {
   <header class="header">
     <div class="header__container container">
       <Logo />
-      <Button label="Clone now" />
+      <AppButton label="Clone now" />
     </div>
   </header>
 </template>
